@@ -2,7 +2,7 @@ package roulette;
 
 import java.text.MessageFormat;
 
-public class Outcome {
+public class Outcome implements Comparable<Outcome> {
 	// Holds the name of the Outcome
 	private String name;
 	// Holds the payout odds for this Outcome
@@ -57,5 +57,10 @@ public class Outcome {
 	@Override
 	public int hashCode() {
 		return name.hashCode();
+	}
+	
+	@Override
+	public int compareTo(Outcome other) {
+		return name.compareTo(other.getName());
 	}
 }
