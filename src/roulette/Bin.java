@@ -21,8 +21,8 @@ public class Bin {
 	 */
 	public Bin(Outcome[] outcomes) {
 		this();
-		for (Outcome o: outcomes)
-			this.outcomes.add(o);
+		for (Outcome outcome: outcomes)
+			this.outcomes.add(outcome);
 	}
 	
 	/**

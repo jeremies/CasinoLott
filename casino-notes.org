@@ -8,10 +8,20 @@ CLOSED: [2018-03-09 dv 19:36]
 | total    |      | 57 |
 Lott: Reverse the order of each pair. 
 1-2 and 2-1 are going to be separate to an algorithm even though they’re obviously the same to you. 
+** TODO To check in solutions at github
+*** Wheel
+- addOutcome and get method from Wheel class. get method can change
+  bin in the wheel.
+- The way that are done the tests.
 ** preguntes
+- [ ] Comment with Sergi the addOutcome and get method from the Wheel
+  class. 
+- [ ] Why he choose Vector to store the Bins in the Wheel class
+  instead of using ArrayList?
 - [ ] Why he choose TreeSet to store the Outcomes in the Bin Class?
 - [ ] Està bé la javadoc que hem fet?
 ** TODO tasks
+- [ ] Make non-random number generator used for testing the Wheel.
 - [ ] Al final què fem amb lo del Singleton i Factory o global instances?
 - [ ] For now, we'll assume that we have global instances of each Outcome.
 - [ ] Fer commit a github cada diumenge
@@ -28,7 +38,7 @@ Lott: Reverse the order of each pair.
 [[http://www.onlineblackjackformoney.org/systems/1-3-2-6-betting-system/][1-3-2-6 Betting System]]
 *** Cancellation
 [[https://wizardofodds.com/gambling/betting-systems/cancellation/][The Cancellation Betting System - Wizard of Odds]]
-** Class Structure
+** Class-Responsibility-Collaboration (CRC) cards
 *** Outcome
 **** Responsibilities
 - A name for the bet and payout odds. 
@@ -52,11 +62,11 @@ Lott: Reverse the order of each pair.
 - 
 *** Wheel
 **** Responsibilities
+- It is a container for the *Bin*s*
+- Selects a *Bin* at random
 - Selects the *Outcome*s* that win.
 - This isolates the use of a random number generator to select
-  *Outcome*s*.
-- It encapsulates the set of winning *Outcome*s* that are associated
-  with each individual number on the wheel.
+  *Bin*s*.
 **** Collaborators
 - Collects the *Outcome*s* into bins.
 - Used by the overall *Game* to get a next set of winning *Outcome*s*.
