@@ -1,0 +1,91 @@
+** Roulette
+*** DONE resoltes
+CLOSED: [2018-03-09 dv 19:36]
+- [X] Com és que Lott diu que hi ha 114 split bets, nosaltres n'hem
+  calculat 57 (la meitat). El nostre càlcul és el següent:
+| files    | 2*12 | 24 |
+| columnes | 11*3 | 33 |
+| total    |      | 57 |
+Lott: Reverse the order of each pair. 
+1-2 and 2-1 are going to be separate to an algorithm even though they’re obviously the same to you. 
+*** preguntes
+- [ ] Està bé la javadoc que hem fet?
+*** TODO tasques
+- [ ] For now, we'll assume that we have global instances of each Outcome.
+- [ ] Fer commit a github cada diumenge
+- [ ] Ens hem quedat al capítol 5 Outcome Class.
+- [ ] Ens hem quedat al WalkThrough de roulette després de fer el punt
+  1. Queda revisar a partir de spin wheel.
+- [ ] Amb Corner bets que diu que n'hi ha 72 tampoc ens quadra a
+  nosaltres ens en donen 22;
+*** Apostes
+**** Martingale
+[[https://en.wikipedia.org/wiki/Martingale_(betting_system)][Martingale (betting system) - Wikipedia]]
+**** Waiting
+**** 1-3-2-6
+[[https://www.gamblingsites.com/systems-strategies/1-3-2-6/][The 1-3-2-6 Betting System - How to Use This Progressive Betting System]]
+[[http://www.onlineblackjackformoney.org/systems/1-3-2-6-betting-system/][1-3-2-6 Betting System]]
+**** Cancellation
+[[https://wizardofodds.com/gambling/betting-systems/cancellation/][The Cancellation Betting System - Wizard of Odds]]
+*** Class Structure
+**** Outcome
+***** Responsibilities
+- A name for the bet and payout odds. 
+- This isolates the calculation of the payout amount. 
+***** Collaborators
+- Collected by *Wheel* into the bins that reflect the bets that win.
+- Used by *Game* to compute the amount won from the amount that was bet.
+- Used by *Bet* to pair a bet amount with an *Outcome*.
+**** Bet
+***** Responsibilities
+- Contains the amount bet on a particular *Outcome*.
+***** Collaborators
+- The bet amount is paired with an *Outcome*.
+- Collected by *Table* into the available *Bet*s* for the *Player*.
+- The *Bet*s* are created by a *Player*.
+**** Bin
+***** Responsibilities
+- Contains a number of the roulette.
+***** Collaborators
+- 
+**** Wheel
+***** Responsibilities
+- Selects the *Outcome*s* that win.
+- This isolates the use of a random number generator to select
+  *Outcome*s*.
+- It encapsulates the set of winning *Outcome*s* that are associated
+  with each individual number on the wheel.
+***** Collaborators
+- Collects the *Outcome*s* into bins.
+- Used by the overall *Game* to get a next set of winning *Outcome*s*.
+**** Table
+***** Responsibilities
+- A collection of *Bet*s* made by a *Player*.
+- This isolates the set of possible *Bet*s* and the management of amounts
+  currently at risk in each *Bet*.
+- This also serves as the interface between the *Player* and the other
+  elements of the game.
+***** Collaborators
+- Collects the *Bet*s*
+- Used by *Player* to place a *Bet*s*.
+- Used by *Game* to compute the amount won from the amount that was bet.
+**** Player
+***** Responsibilities
+- Places *Bet*s* on *Outcome*s* throughout the *Table*
+- Updates the stake with amounts won and lost.
+***** Collaborators
+- Uses *Table* to place *Bet*s*.
+- Used by *Game* to record wins and losses.
+- Used by *Game* to place *Bet*s* on *Table*.
+**** Game
+***** Responsibilities
+- Runs the game:
+  + Gets *Bet*s* from *Player*
+  + Spins *Wheel*
+  + Collects losing *Bet*s*
+  + Pays winning *Bet*s*
+- Encapsulates the basic sequence of play into a single class. 
+***** Collaborators
+- Uses *Wheel*, *Table*, *Bet*, *Outcome*, *Player*
+- The overall statistical analysis will play a finite number of
+  *Game*s* and collect the final value of the *Player*s* stake.
