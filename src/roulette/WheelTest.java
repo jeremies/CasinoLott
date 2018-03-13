@@ -50,5 +50,18 @@ public class WheelTest {
 		assertEquals(bin25.toString(), wheel.next().toString());
 		assertEquals(bin25.toString(), wheel.next().toString());
 	}
-
+	
+	/**
+	 * Creates and initializes a Wheel. Check selected bins for correct Outcomes.
+	 */
+	@Test
+	public void wheelTest2() throws Exception {
+		Wheel wheel = new Wheel(new Random());
+		new BinBuilder().buildBin(wheel);
+		
+		assertEquals("[Five number (6:1), Number 0 (35:1)]", wheel.getBin(0).toString());
+		assertEquals("[Five number (6:1), Number 00 (35:1)]", wheel.getBin(37).toString());
+		assertEquals("[Column 1 (2:1), Corner 1-2-4-5 (8:1), Dozen 1 (2:1), Five number (6:1), Line 1-2-3-4-5-6 (5:1), Low (1:1), Number 1 (35:1), Odd (1:1), Red (1:1), Split 1-2 (17:1), Split 1-4 (17:1), Street 1-2-3 (11:1)]", wheel.getBin(1).toString());
+		assertEquals("[Black (1:1), Column 2 (2:1), Corner 16-17-19-20 (8:1), Corner 17-18-20-21 (8:1), Corner 19-20-22-23 (8:1), Corner 20-21-23-24 (8:1), Dozen 2 (2:1), Even (1:1), High (1:1), Line 16-17-18-19-20-21 (5:1), Line 19-20-21-22-23-24 (5:1), Number 20 (35:1), Split 17-20 (17:1), Split 19-20 (17:1), Split 20-21 (17:1), Split 20-23 (17:1), Street 19-20-21 (11:1)]", wheel.getBin(20).toString());
+	}
 }

@@ -21,6 +21,7 @@ Lott: Reverse the order of each pair.
 - [ ] Why he choose TreeSet to store the Outcomes in the Bin Class?
 - [ ] Està bé la javadoc que hem fet?
 ** TODO tasks
+- [ ] Llegir secció 8.5 Internationalization and Localization.
 - [ ] Make non-random number generator used for testing the Wheel.
 - [ ] Al final què fem amb lo del Singleton i Factory o global instances?
 - [ ] For now, we'll assume that we have global instances of each Outcome.

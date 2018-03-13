@@ -4,6 +4,13 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Bin contains a collection of Outcomes which reflect the winning bets that are paid
+ * for a particular bin on a Roulette wheel. In Roulette, each spin of the wheel has a 
+ * number of Outcomes.
+ * @author quim
+ *
+ */
 public class Bin {
 	// A Set that holds the connection of individual Outcomes.
 	private Set<Outcome> outcomes;

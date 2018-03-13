@@ -2,6 +2,13 @@ package roulette;
 
 import java.text.MessageFormat;
 
+/**
+ * Outcome contains a single outcome on which a bet can be placed.
+ * In Roulette, each spin of the wheel has a number of Outcomes with bets
+ * that will be paid off.
+ * @author quim
+ *
+ */
 public class Outcome implements Comparable<Outcome> {
 	// Holds the name of the Outcome
 	private String name;

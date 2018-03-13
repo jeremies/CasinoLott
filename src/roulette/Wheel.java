@@ -3,6 +3,12 @@ package roulette;
 import java.util.Random;
 import java.util.Vector;
 
+/**
+ * Wheel contains the 38 individual Bins on a Roulette Wheel, plus a random number
+ * generator. It can select a Bin at random, simulating a spin of the Roulette Wheel.
+ * @author quim
+ *
+ */
 public class Wheel {
 	// Contains the individual Bin instances
 	private Vector<Bin> bins = new Vector<>(38);
@@ -46,7 +52,7 @@ public class Wheel {
 	 * @param bin (int) bin number, in the range zero to 37 (inclusive).
 	 * @return (Bin) the requested Bin.
 	 */
-	public Bin get(int bin) {
+	public Bin getBin(int bin) {
 		return bins.get(bin);
 	}
 }
